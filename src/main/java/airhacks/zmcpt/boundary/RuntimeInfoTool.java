@@ -6,9 +6,19 @@ import java.util.function.Function;
 import airhacks.zmcpt.entity.ToolResponse;
 
 public class RuntimeInfoTool implements Function<String, Map<String, String>> {
-    
+
+    /**
+     * A TOOL_SPEC attribute has to exist in every tool implementation.
+     * It is used to describe the tool's input parameters and its behavior and is fetched by zmcp via reflection.
+     */
     static Map<String, String> TOOL_SPEC = ToolSpec.SINGLE_REQUIRED_PARAMETER;
 
+    /**
+     * The apply method is the entry point for the tool.
+     * It is called by zmcp when the tool is invoked.
+     * The parameter is the input parameter and is usually in JSON format.
+     * The return value is a map of key-value pairs with predefined keys.
+     */
     @Override
     public Map<String, String> apply(String parameter) {
         var memoryStatus = """
