@@ -24,4 +24,17 @@ public interface ToolSpec {
                                 }
                         """);
     }
+
+    static Map<String, String> noParameters(String name, String description) {
+        return Map.of(
+                "name", name,
+                "description", description,
+                "inputSchema", """
+                                {
+                                    "type": "object",
+                                    "properties": {},
+                                    "required": []
+                                }
+                        """);
+    }
 }
