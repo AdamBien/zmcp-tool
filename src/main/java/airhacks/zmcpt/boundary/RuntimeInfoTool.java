@@ -5,13 +5,15 @@ import java.util.function.Function;
 
 import airhacks.zmcpt.entity.ToolResponse;
 /**
- * An example tool that returns the server's runtime metrics.
+ * An example zmcp tool that returns the server's runtime metrics.
  * It is a starting point for creating your own implementations.
- * A tool implementation has to:
+ * To implement your own zmcp tool, you have to:
  * <ul>
  * <li>implement the <code>Function<String, Map<String, String>></code> interface</li>
- * <li>return a <code>Map<String, String></code> with "content" and "error" keys</li>
- * <li>have a <code>TOOL_SPEC</code> attribute that describes the tool's input parameters and its behavior</li>
+ * <li>return a <code>Map<String, String></code> with "content" and "error" keys, the ToolResponse class provides a utility method to create a tool response.</li>
+ * <li>have a <code>TOOL_SPEC</code> attribute that describes the tool's input parameters and its behavior.
+ *     The <code>ToolSpec</code> class provides a utility method to create a tool spec.</li>
+ * <li>put the fully qualified class name in the <code>META-INF/services/java.util.function.Function</code> file</li>
  * </ul>
  */
 public class RuntimeInfoTool implements Function<String, Map<String, String>> {
